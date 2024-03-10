@@ -39,6 +39,18 @@ ScrollTrigger.refresh();
 
 loco()
 
+gsap.to("#page>video",{
+  scrollTrigger:{
+      trigger:`#page>video`,
+      start:`2% top`,
+      end:`bottom top`,
+      scroller:`#main`
+  },
+  onStart:()=>{
+      document.querySelector("#page>video").play()
+  }
+})
+
 gsap.to("#page",{
   scrollTrigger:{
       trigger:`#page`,
@@ -59,4 +71,47 @@ gsap.to("#page-bottom",{
       scrub:.5,
   },
   opacity:0
+})
+
+var tl = gsap.timeline({
+  scrollTrigger:{
+      trigger:`#page1`,
+      start:`top top`,
+      scrub:1,
+      scroller:`#main`,
+      pin:true
+  }
+})
+
+
+tl.to("#page1>h1",{
+  top:`-50%`
+})
+
+var tl1 = gsap.timeline({
+  scrollTrigger:{
+      trigger:`#page2`,
+      start:`top top`,
+      scrub:1,
+      scroller:`#main`,
+      pin:true
+  }
+})
+
+tl1.to("#page2>h1",{
+  top:`-50%`
+})
+
+var tl2 = gsap.timeline({
+  scrollTrigger:{
+      trigger:`#page4`,
+      start:`top top`,
+      scrub:1,
+      scroller:`#main`,
+      pin:true
+  }
+})
+
+tl2.to("#page4>#center-page4",{
+  top:`-50%`
 })
