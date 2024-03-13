@@ -115,3 +115,17 @@ var tl2 = gsap.timeline({
 tl2.to("#page4>#center-page4",{
   top:`-50%`
 })
+
+function canvas(){
+  const canvas = document.querySelector("#page7>canvas");
+const context = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
+window.addEventListener("resize", function () {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+render();
+});
