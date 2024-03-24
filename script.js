@@ -483,3 +483,80 @@ images[1].onload = render;
 function render() {
 scaleImage(images[imageSeq.frame], context);
 }
+function scaleImage(img, ctx) {
+  var canvas = ctx.canvas;
+  var hRatio = canvas.width / img.width;
+  var vRatio = canvas.height / img.height;
+  var ratio = Math.max(hRatio, vRatio);
+  var centerShift_x = (canvas.width - img.width * ratio) / 2;
+  var centerShift_y = (canvas.height - img.height * ratio) / 2;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    img,
+    0,
+    0,
+    img.width,
+    img.height,
+    centerShift_x,
+    centerShift_y,
+    img.width * ratio,
+    img.height * ratio
+  );
+  }
+  ScrollTrigger.create({
+  
+  trigger: "#page18",
+  pin: true,
+  // markers:true,
+  scroller: `#main`,
+  //   set start end according to preference
+  start: `top top`,
+  end: `80% top`,
+  });
+  }
+  canvas1();
+  
+  
+  
+  var tl3 = gsap.timeline({
+    scrollTrigger:{
+        trigger:`#page21`,
+        start:`top top`,
+        scrub:1,
+        scroller:`#main`,
+        pin:true
+    }
+  })
+  
+  
+  tl3.to("#page21>#troff",{
+    opacity:0
+  })
+  
+  var tl4 = gsap.timeline({
+    scrollTrigger:{
+        trigger:`#page22`,
+        start:`top top`,
+        scrub:1,
+        scroller:`#main`,
+        pin:true
+    }
+  })
+  
+  
+  tl4.to("#page22>#snroff",{
+    opacity:0
+  })
+  
+  
+  
+  gsap.to("#page23>img",{
+    scrollTrigger:{
+      trigger:`#page23>img`,
+      start:`top bottom`,
+      end:`bottom 60%`,
+      scrub:.5,
+      scroller:`#main`
+    },
+    opacity:1
+  })
